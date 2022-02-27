@@ -1,17 +1,17 @@
 import React from 'react';
 import {Text, View,StyleSheet,TouchableNativeFeedback , Image } from 'react-native'
 
-function ChatListItem({data}) {
+function StatusListItem({data}) {
   return (
     <TouchableNativeFeedback>
           <View style={itemStyle.itemParent} >
-            <Image source={{uri:data.image}} style={itemStyle.img} />
+            <Image source={{uri : data.image}} style={itemStyle.img} />
              <View style={itemStyle.nameParentView}>
              <View style={itemStyle.nameView}>
-                <Text>
+                <Text style={itemStyle.Bold}>
                 {data.name}
                 </Text>
-                <Text>
+                <Text style={itemStyle.Bold}>
                     {data.text.last}
                 </Text>
             </View>
@@ -28,6 +28,9 @@ function ChatListItem({data}) {
 
 
 const itemStyle=StyleSheet.create({
+    Bold:{
+        fontWeight: 'bold'
+    },
     itemParent:{
         paddingVertical:10,
         paddingHorizontal:10,
@@ -49,8 +52,9 @@ const itemStyle=StyleSheet.create({
     nameView:{
         paddingVertical:5,
         flexDirection:'column',
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+        
     }
 })
 
-export default ChatListItem
+export default StatusListItem
