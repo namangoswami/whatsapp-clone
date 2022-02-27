@@ -1,20 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {useState} from 'react'
+import  { StyleSheet, Text,  View, Platform, Dimensions } from 'react-native';
+import { SafeAreaView } from "react-native-safe-area-context";
+import SliderNavigation from './src/navigation/SliderNavigation';
+import Header from './src/components/Header'
 
 export default function App() {
+  const [Width, setWidth] = useState(0);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>  
+      <View style={styles.container}>
+        <Header page={Math.round(Width/Dimensions.get('window').width)}/>
+        <SliderNavigation Width={Width} setWidth={setWidth}/> 
+        <StatusBar style="auto" /> 
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  container: { 
+    width:'100%',
+    height: '100%',
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
 });
