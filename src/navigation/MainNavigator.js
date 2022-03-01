@@ -3,7 +3,8 @@ import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Text,View} from 'react-native';
-import Primary from '../Screen/Primary'
+import Primary from '../Screen/Primary';
+import ChatScreen from '../Screen/ChatScreen'
 const Stack = createStackNavigator();
 
 const MainNavigator = () => {
@@ -28,8 +29,16 @@ const MainNavigator = () => {
           }
           
         }}
-        
         />
+        <Stack.Screen component={ChatScreen}  name="ChatScreen" options={{
+          headerStyle:{
+            backgroundColor: '#008069',
+            shadowColor:'transparent'
+          },
+          headerTitleStyle:{
+            color:'#fafefc',
+          }}}
+           />
     </Stack.Navigator>
     </NavigationContainer>
      

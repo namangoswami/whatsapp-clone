@@ -206,7 +206,7 @@ const data=[
 ]
 
 
-function ChatList() {
+function ChatList( ) {
 
     const row  = item =><ChatItem data={item.item}  feedBack={feedBack} />
     const [feedBack, setFeedBack]=useState(true);
@@ -223,6 +223,7 @@ function ChatList() {
           >
 
           </FlatList>
+          
       </View>
   )
 }

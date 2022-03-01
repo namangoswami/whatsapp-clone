@@ -1,11 +1,16 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {Text, View,StyleSheet,TouchableNativeFeedback,TouchableOpacity , Image } from 'react-native'
 import { RectButton } from 'react-native-gesture-handler';
 
 function ChatListItem({data, feedBack}) {
-  return (
+    const navigation=useNavigation();
+    return (
     <RectButton
         activeOpacity={feedBack}
+        onPress={()=>{
+            navigation.navigate("ChatScreen", {name:'naman'});
+        }}
         >
           <View style={itemStyle.itemParent} >
             <Image source={{uri:data.image}} style={itemStyle.img} />
