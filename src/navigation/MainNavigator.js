@@ -11,12 +11,25 @@ const MainNavigator = () => {
       
 <NavigationContainer >
     <Stack.Navigator
+    
     screenOptions={{
-        headerShown: true
-    }}
+        headerShown: true}}
+    
     initialRouteName="Primary"
+    headerOptions={{backgroundColor:'#008069',}} 
     >
-        <Stack.Screen name="WhatsApp" component={Primary} />
+        <Stack.Screen name="WhatsApp"  component={Primary} options={{
+          headerStyle:{
+            backgroundColor: '#008069',
+            shadowColor:'transparent'
+          },
+          headerTitleStyle:{
+            color:'#fafefc',
+          }
+          
+        }}
+        
+        />
     </Stack.Navigator>
     </NavigationContainer>
      

@@ -1,9 +1,12 @@
 import React from 'react';
-import {Text, View,StyleSheet,TouchableNativeFeedback , Image } from 'react-native'
+import {Text, View,StyleSheet,TouchableNativeFeedback,TouchableOpacity , Image } from 'react-native'
+import { RectButton } from 'react-native-gesture-handler';
 
-function ChatListItem({data}) {
+function ChatListItem({data, feedBack}) {
   return (
-    <TouchableNativeFeedback>
+    <RectButton
+        activeOpacity={feedBack}
+        >
           <View style={itemStyle.itemParent} >
             <Image source={{uri:data.image}} style={itemStyle.img} />
              <View style={itemStyle.nameParentView}>
@@ -22,7 +25,7 @@ function ChatListItem({data}) {
             </View>
             </View>
           </View>
-          </TouchableNativeFeedback>
+          </RectButton>
   )
 }
 

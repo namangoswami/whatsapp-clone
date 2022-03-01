@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {StyleSheet,View, Text, Dimensions, Image,FlatList, TouchableNativeFeedback} from 'react-native';
 import ChatItem from './ChatListItem'
 const data=[
@@ -208,7 +208,8 @@ const data=[
 
 function ChatList() {
 
-    const row  = item =><ChatItem data={item.item} />
+    const row  = item =><ChatItem data={item.item}  feedBack={feedBack} />
+    const [feedBack, setFeedBack]=useState(true);
   return (
       
       <View  style={styles.listParent} >
@@ -217,6 +218,8 @@ function ChatList() {
           data={data}
           renderItem={row}
           keyExtractor={(i, k)=>k}
+          onScrollBeginDrag={()=>{setFeedBack(false)}}
+          onScrollEndDrag={()=>setFeedBack(true)}
           >
 
           </FlatList>
